@@ -1,57 +1,75 @@
-# Air Passengers Forecasting with LSTM
+# Air Passengers Time Series Forecasting Using LSTM
 
-This project demonstrates time series forecasting using an LSTM (Long Short-Term Memory) neural network on the classic **Air Passengers** dataset, which contains monthly totals of international airline passengers from 1949 to 1960.
+This project implements a time series forecasting model using Long Short-Term Memory (LSTM) neural networks. The model is trained on the Air Passengers dataset, which contains monthly totals of international airline passengers from 1949 to 1960.
 
-## 📂 Dataset
+## Dataset
 
-- **Source**: Provided as `AirPassengers.csv`
-- **Columns**:
-  - `Month`: Date in `YYYY-MM` format.
-  - `#Passengers`: Monthly total number of international airline passengers.
+The dataset file `AirPassengers.csv` includes:
 
-## 📈 Objective
+- `Month`: Date of observation (monthly format)
+- `Passengers`: Number of international airline passengers
 
-Use past 12 months of passenger data to predict the next month's value using an LSTM model implemented in Keras (TensorFlow backend).
+## Objective
 
-## 🛠️ Requirements
+The objective of this project is to build and train an LSTM model that can predict future passenger counts, specifically forecasting the next 12 months based on historical data.
 
-Make sure you have the following Python libraries installed:
+## Requirements
+
+The following Python libraries are required to run the script:
+
+- pandas  
+- numpy  
+- matplotlib  
+- scikit-learn  
+- tensorflow  
+
+You can install them using:
 
 ```bash
-pip install numpy pandas matplotlib scikit-learn tensorflow
-
+pip install pandas numpy matplotlib scikit-learn tensorflow
 ```
+## Usage
 
-## 🧪 How to Run
-Place AirPassengers.csv in the project folder.
+Place AirPassengers.csv in the same directory as the script.
+Run the Python script:
+```bash
+python LSTM1.py
+```
+## Output
 
-Run the lstm_airpassengers_forecast.py script or Jupyter Notebook.
+The script will:
 
-## 🧠 Model Overview
-Preprocessing:
+Train an LSTM model using the historical dataset.
 
-Normalizes passenger counts using MinMaxScaler.
+Forecast the number of passengers for the next 12 months.
 
-Transforms data into sequences of 12 months for training.
+Display a plot comparing historical data with future predictions.
 
-Model:
+Save the plot as future_forecast.png.
 
-LSTM with 50 units + Dense output layer.
+Print a table of forecasted passenger counts for the next year.
+
+## Model Summary
+
+Type: LSTM (Long Short-Term Memory) Neural Network
+
+Sequence Length: 12 months (one year used to predict the next month)
+
+Loss Function: Mean Squared Error (MSE)
 
 Optimizer: Adam
 
-Loss: Mean Squared Error (MSE)
+Epochs: 100
 
-Training:
+## Example Output Table
 
-Trained for 100 epochs on 80% of the dataset.
+| Month      | Predicted Passengers |
+|:----------:|:--------------------:|
+| 1961-01-01 | 440.12               |
+| 1961-02-01 | 423.55               |
+| 1961-03-01 | ...                  |
+| 1961-12-01 | 500.92               |
 
-## 📊 Output
-The model generates a plot comparing the predicted passenger counts to the actual values from the test set.
 
-(replace with your output if needed)
-
-## 📌 Notes
-LSTM models are sensitive to scaling and sequence length.
-
-This example does not include hyperparameter tuning or more advanced techniques like seasonality decomposition.
+## License
+This project is intended for academic and educational use.
