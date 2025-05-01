@@ -60,7 +60,7 @@ Loss Function: Mean Squared Error (MSE)
 
 Optimizer: Adam
 
-Epochs: 100
+Epochs: 75
 
 ## Example Output Table
 
